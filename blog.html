@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Travel Stories</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .pet-stories-section {
+            background-image: url('./movingbg.png');
+            background-repeat: no-repeat;
+        }
+
+        .pet-stories-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(255,255,255,0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(255,255,255,0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+
+        .blog-section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .blog-section-title {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: 2.8rem;
+            font-weight: 300;
+            color: white;
+            line-height: 1.3;
+            margin-bottom: 20px;
+        }
+
+        .blog-section-subtitle {
+            color: #1e40af;
+            font-weight: 600;
+            border-bottom: 3px solid #1e40af;
+            display: inline-block;
+            padding-bottom: 4px;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .testimonial-card {
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 16px;
+            padding: 0;
+            overflow: hidden;
+            position: relative;
+            transform: translateY(20px);
+            opacity: 0;
+            animation: slideUp 0.6s ease forwards;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .testimonial-card:nth-child(1) { animation-delay: 0.1s; }
+        .testimonial-card:nth-child(2) { animation-delay: 0.2s; }
+        .testimonial-card:nth-child(3) { animation-delay: 0.3s; }
+        .testimonial-card:nth-child(4) { animation-delay: 0.4s; }
+        .testimonial-card:nth-child(5) { animation-delay: 0.5s; }
+        .testimonial-card:nth-child(6) { animation-delay: 0.6s; }
+
+        .testimonial-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        @keyframes slideUp {
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .card-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            position: relative;
+        }
+
+        .card-content {
+            padding: 24px;
+        }
+
+        .stars {
+            display: flex;
+            gap: 4px;
+            margin-bottom: 12px;
+        }
+
+        .star {
+            color: #fbbf24;
+            font-size: 14px;
+        }
+
+        .time-ago {
+            color: #9ca3af;
+            font-size: 12px;
+            margin-left: 8px;
+        }
+
+        .testimonial-text {
+            color: #e5e7eb;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        .source {
+            color: #6b7280;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, rgba(251, 191, 36, 0.3) 0%, rgba(251, 191, 36, 0.1) 100%);
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+
+        @media (max-width: 768px) {
+            .pet-stories-section {
+                padding: 60px 15px;
+            }
+            
+            .blog-section-title {
+                font-size: 2.2rem;
+            }
+            
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .blog-section-title {
+                font-size: 1.8rem;
+            }
+            
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="pet-stories-section">
+        <div class="container">
+            <div class="blog-section-header">
+                <h2 class="blog-section-title">
+                    Discover the heartfelt stories<br>
+                    of pet owners traveling<br>
+                    <span class="blog-section-subtitle">to and from Boston</span>
+                </h2>
+            </div>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=400&h=200&fit=crop&crop=center" alt="Pet and owner" class="card-image">
+                    <div class="card-content">
+                        <div class="stars">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="time-ago">3 Days ago</span>
+                        </div>
+                        <p class="testimonial-text">
+                            We couldn't have asked for better care for our dog, Bella, during her trip to Australia. <span class="highlight">Starwood Pet Travel</span> exceeded everything seamlessly and kept us informed at every step.
+                        </p>
+                        <div class="source">Source: Google Local</div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <img src="https://images.unsplash.com/photo-1574144611937-0df059b5ef3e?w=400&h=200&fit=crop&crop=center" alt="Cat with owner" class="card-image">
+                    <div class="card-content">
+                        <div class="stars">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="time-ago">3 Days ago</span>
+                        </div>
+                        <p class="testimonial-text">
+                            Moving our cat, Oliver, to Canada was stress-free thanks to <span class="highlight">Starwood Pet Travel</span>. Their team guided us through the entire process and provided updates the whole way.
+                        </p>
+                        <div class="source">Source: Google Local</div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <img src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=400&h=200&fit=crop&center" alt="Golden retriever" class="card-image">
+                    <div class="card-content">
+                        <div class="stars">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="time-ago">3 Days ago</span>
+                        </div>
+                        <p class="testimonial-text">
+                            <span class="highlight">Starwood Pet Travel</span> took very good care of our dog, Sierra in her journey to New Zealand. The process leading up to her travel was smooth. They kept in contact with us during every step of the process.
+                        </p>
+                        <div class="source">Source: Google Local</div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=400&h=200&fit=crop&crop=center" alt="Rabbit pet" class="card-image">
+                    <div class="card-content">
+                        <div class="stars">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="time-ago">3 Days ago</span>
+                        </div>
+                        <p class="testimonial-text">
+                            Our rabbit, Coco, arrived safely in Germany, all thanks to <span class="highlight">Starwood Pet Travel</span>. They made sure that journey was comfortable and kept us apprised with regular updates throughout.
+                        </p>
+                        <div class="source">Source: Google Local</div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=400&h=200&fit=crop&crop=center" alt="Lab dog" class="card-image">
+                    <div class="card-content">
+                        <div class="stars">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="time-ago">3 Days ago</span>
+                        </div>
+                        <p class="testimonial-text">
+                            <span class="highlight">Starwood Pet Travel</span> took very good care of our dog, Sierra in her journey to New Zealand. The process leading up to her travel was smooth. They kept in contact with us during every step of the process.
+                        </p>
+                        <div class="source">Source: Google Local</div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <img src="https://images.unsplash.com/photo-1544568100-847a948585b9?w=400&h=200&fit=crop&crop=center" alt="Cat close up" class="card-image">
+                    <div class="card-content">
+                        <div class="stars">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="time-ago">3 Days ago</span>
+                        </div>
+                        <p class="testimonial-text">
+                            Thanks to <span class="highlight">Starwood Pet Travel</span>, our hamster, Peanut, had a safe and well-organized trip to Italy. They took care of every detail and kept us updated throughout.
+                        </p>
+                        <div class="source">Source: Google Local</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Intersection Observer for animation triggers
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all testimonial cards
+        document.querySelectorAll('.testimonial-card').forEach(card => {
+            observer.observe(card);
+        });
+
+        // Add hover effect sounds (optional)
+        document.querySelectorAll('.testimonial-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-8px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Add parallax effect to background
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const section = document.querySelector('.pet-stories-section');
+            const rate = scrolled * -0.5;
+            
+            if (section) {
+                section.style.transform = `translateY(${rate}px)`;
+            }
+        });
+
+        // Dynamic loading animation
+        const cards = document.querySelectorAll('.testimonial-card');
+        
+        const loadCards = () => {
+            cards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        };
+
+        // Trigger loading animation when section comes into view
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    loadCards();
+                    sectionObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.2 });
+
+        sectionObserver.observe(document.querySelector('.pet-stories-section'));
+    </script>
+</body>
+</html>

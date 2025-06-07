@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Stories</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #f8f9fa;
+            padding: 60px 20px;
+        }
+
+  
+
+        .dog-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .dog-header h1 {
+            font-size: 3.5rem;
+            font-weight: 400;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+        }
+
+        .dog-header h1 .story {
+            color: #0ea5e9;
+            border-bottom: 3px solid #0ea5e9;
+            padding-bottom: 2px;
+        }
+
+        .dog-header p {
+            font-size: 1.1rem;
+            color: #6b7280;
+            font-weight: 400;
+        }
+
+        .story-section {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .story-content {
+            flex: 1;
+            max-width: 400px;
+        }
+
+        .timeline-bar {
+            width: 4px;
+            height: 120px;
+            background: linear-gradient(to bottom, #22c55e 0%, #22c55e 60%, #e5e7eb 60%, #e5e7eb 100%);
+            margin-right: 30px;
+            border-radius: 2px;
+        }
+
+        .route-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: #22c55e;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 25px;
+        }
+
+        .plane-icon {
+            font-size: 0.8rem;
+        }
+
+        .story-date {
+            color: #9ca3af;
+            font-size: 0.85rem;
+            margin-bottom: 12px;
+            font-weight: 400;
+        }
+
+        .story-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #1f2937;
+            line-height: 1.3;
+            margin-bottom: 18px;
+        }
+
+        .story-description {
+            color: #6b7280;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .story-image-container {
+            flex: 1;
+            position: relative;
+            max-width: 500px;
+        }
+
+        .story-image {
+            width: 100%;
+            /* height: 350px; */
+            object-fit: cover;
+            border-radius: 15px;
+            /* box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); */
+        }
+
+        .meet-badge {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background: white;
+            color: #374151;
+            padding: 10px 18px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .navigation {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .nav-button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 50%;
+            transition: background-color 0.2s ease;
+        }
+
+        .nav-button:hover {
+            background-color: #f3f4f6;
+        }
+
+        .nav-button:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .nav-arrow {
+            width: 24px;
+            height: 24px;
+            stroke: #9ca3af;
+            stroke-width: 2;
+            fill: none;
+        }
+
+        @media (max-width: 768px) {
+            .dog-header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .story-section {
+                flex-direction: column;
+                gap: 40px;
+                text-align: center;
+            }
+            
+            .timeline-bar {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="container">
+        <div class="dog-header">
+            <h1>Every trip has a <span class="story">story</span></h1>
+            <p>Read stories traveling to and from Boston</p>
+        </div>
+        
+        <div class="story-section">
+            <div class="story-content">
+                <div class="timeline-bar"></div>
+                
+                <div class="route-badge">
+                    <span class="plane-icon">✈</span>
+                    <span>JFK — AKL</span>
+                </div>
+                
+                <div class="story-date">May 12, 2024</div>
+                
+                <h2 class="story-title">We transported Johnnie the Lab from New York to Boston last week.</h2>
+                
+                <p class="story-description">When his owner needed to move to NZ for work, they settled on Starwood for one simple reason.</p>
+                
+                <div class="navigation">
+                    <button class="nav-button" onclick="previousStory()" disabled>
+                        <svg class="nav-arrow" viewBox="0 0 24 24">
+                            <path d="M15 18l-6-6 6-6"/>
+                        </svg>
+                    </button>
+                    <button class="nav-button" onclick="nextStory()">
+                        <svg class="nav-arrow" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="story-image-container">
+                <img src="./dog.png" alt="Johnnie the Lab on road" class="story-image">
+                <div class="meet-badge">
+                    Meet Johnnie 🐕
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const stories = [
+            {
+                image: "./dog.png",
+                route: "JFK — AKL",
+                meetText: "Meet Johnnie 🐕",
+                date: "May 12, 2024",
+                title: "We transported Johnnie the Lab from New York to Boston last week.",
+                description: "When his owner needed to move to NZ for work, they settled on Starwood for one simple reason."
+            },
+            {
+                image: "./dog.png",
+                route: "LAX — BOS",
+                meetText: "Meet Luna 🐱",
+                date: "May 8, 2024",
+                title: "Luna's cross-country adventure from Los Angeles to Boston.",
+                description: "A rescue cat finds her forever home after a comfortable journey with our premium pet transport service."
+            },
+            {
+                image: "./dog.png",
+                route: "MIA — BOS",
+                meetText: "Meet Charlie 🐕",
+                date: "May 5, 2024",
+                title: "Charlie the Golden Retriever's journey from Miami to Boston.",
+                description: "Following his family's relocation, Charlie experienced first-class pet travel with temperature-controlled comfort."
+            }
+        ];
+
+        let currentStoryIndex = 0;
+
+        function updateStory(index) {
+            const story = stories[index];
+            
+            // Update content
+            document.querySelector('.route-badge span:last-child').textContent = story.route;
+            document.querySelector('.story-date').textContent = story.date;
+            document.querySelector('.story-title').textContent = story.title;
+            document.querySelector('.story-description').textContent = story.description;
+            
+            // Update image and badge
+            document.querySelector('.story-image').src = story.image;
+            document.querySelector('.meet-badge').textContent = story.meetText;
+            
+            // Update navigation buttons
+            const prevButton = document.querySelector('.nav-button:first-child');
+            const nextButton = document.querySelector('.nav-button:last-child');
+            
+            prevButton.disabled = index === 0;
+            nextButton.disabled = index === stories.length - 1;
+        }
+
+        function nextStory() {
+            if (currentStoryIndex < stories.length - 1) {
+                currentStoryIndex++;
+                updateStory(currentStoryIndex);
+            }
+        }
+
+        function previousStory() {
+            if (currentStoryIndex > 0) {
+                currentStoryIndex--;
+                updateStory(currentStoryIndex);
+            }
+        }
+    </script>
+</body>
+</html>

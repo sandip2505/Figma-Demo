@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Care - We're Different</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .package-section {
+            position: relative;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #7BC142 0%, #5A9C2A 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 60px 20px;
+            background-image: url('./packagebg.png');
+        }
+
+        .package-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><filter id="blur"><feGaussianBlur stdDeviation="2"/></filter></defs><ellipse cx="200" cy="600" rx="80" ry="40" fill="rgba(255,255,255,0.1)" filter="url(%23blur)"/><ellipse cx="400" cy="650" rx="60" ry="30" fill="rgba(255,255,255,0.08)" filter="url(%23blur)"/><ellipse cx="600" cy="620" rx="70" ry="35" fill="rgba(255,255,255,0.1)" filter="url(%23blur)"/><ellipse cx="800" cy="640" rx="50" ry="25" fill="rgba(255,255,255,0.09)" filter="url(%23blur)"/><ellipse cx="1000" cy="610" rx="65" ry="32" fill="rgba(255,255,255,0.07)" filter="url(%23blur)"/></svg>') center bottom/contain no-repeat;
+            opacity: 0.3;
+            z-index: 1;
+        }
+
+        .container {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .hero-header {
+            margin-bottom: 80px;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            color: white;
+            font-weight: 300;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        .hero-title .different {
+            color: #2E86AB;
+            font-weight: 700;
+            text-decoration: underline;
+            text-decoration-color: #2E86AB;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: white;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px 25px;
+            text-align: left;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .feature-card:hover::before {
+            left: 100%;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+
+        .feature-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #00697E;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+
+        .feature-description {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .cta-button {
+            background: #2E86AB;
+            color: white;
+            border: none;
+            padding: 18px 40px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 20px rgba(46, 134, 171, 0.3);
+        }
+
+        .cta-button:hover {
+            background: #235a73;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(46, 134, 171, 0.4);
+        }
+
+        .cta-button:active {
+            transform: translateY(0);
+        }
+
+        /* Floating animation for cards */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .feature-card {
+                padding: 25px 20px;
+            }
+            
+            .package-section {
+                padding: 40px 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+        }
+
+        /* Pulse effect for CTA button */
+        @keyframes pulse {
+            0% { box-shadow: 0 4px 20px rgba(46, 134, 171, 0.3); }
+            50% { box-shadow: 0 4px 30px rgba(46, 134, 171, 0.5); }
+            100% { box-shadow: 0 4px 20px rgba(46, 134, 171, 0.3); }
+        }
+
+        .cta-button {
+            animation: pulse 2s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+    <section class="package-section">
+        <div class="container">
+            <div class="hero-header">
+                <h1 class="hero-title">We're <span class="different">Different</span></h1>
+                <p class="hero-subtitle">Pets, not packages.<br>Expect more.</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card" data-feature="experience">
+                    <h3 class="feature-title">50+ years of care</h3>
+                    <p class="feature-description">Trust the experts with experience (and all the 5-star reviews to prove it).</p>
+                </div>
+                
+                <div class="feature-card" data-feature="technology">
+                    <h3 class="feature-title">Technology</h3>
+                    <p class="feature-description">Industry-leading Pet Travel Portal to make things simple & clear.</p>
+                </div>
+                
+                <div class="feature-card" data-feature="protection">
+                    <h3 class="feature-title">Pet Protection Plan</h3>
+                    <p class="feature-description">Peace of mind for things outside of your (or our) control.</p>
+                </div>
+                
+                <div class="feature-card" data-feature="communication">
+                    <h3 class="feature-title">Stay in touch</h3>
+                    <p class="feature-description">CarePet Travel Service to provide updates throughout your pet's move via email & text.</p>
+                </div>
+            </div>
+            
+            <button class="cta-button" onclick="getQuote()">Get a Quote</button>
+        </div>
+    </section>
+
+  
+</body>
+</html>
